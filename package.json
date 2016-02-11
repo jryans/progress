@@ -1,0 +1,20 @@
+{
+  "name": "progress",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "co": "^4.6.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jryans/progress.git"
+  },
+  "author": "J. Ryan Stinnett <jryans@gmail.com> (http://convolv.es/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jryans/progress/issues"
+  },
+  "homepage": "https://github.com/jryans/progress#readme"
+}

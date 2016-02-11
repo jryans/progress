@@ -1,0 +1,10 @@
+{
+  "Group 1": {
+    "Task 1a": 20,
+    "Task 1b": 30
+  },
+  "Group 2": {
+    "Task 2a": 0,
+    "Task 2b": 100
+  }
+}

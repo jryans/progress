@@ -17,8 +17,44 @@ function* load() {
       let itemValue = groupValue[itemName];
       let li = document.createElement("li")
       group.appendChild(li);
-      li.textContent = `${itemName}: ${itemValue}`;
+      li.textContent = itemName;
+      let progress = document.createElement("div");
+      li.appendChild(progress);
+      progress.classList.add("progress");
+      progress.textContent = itemValue;
     }
+  }
+
+  for (let progress of document.querySelectorAll(".progress")) {
+    addProgressBar(progress);
+  }
+}
+
+function addProgressBar(progress) {
+  let percent = progress.textContent;
+  progress.textContent = "";
+
+  let center = document.createElement("div");
+  progress.appendChild(center);
+  center.classList.add("progress-center");
+
+  let centerFill = document.createElement("div");
+  progress.appendChild(centerFill);
+  centerFill.classList.add("progress-center-fill");
+
+  let fill = document.createElement("div");
+  progress.appendChild(fill);
+  fill.classList.add("progress-fill");
+
+  let value = document.createElement("div");
+  fill.appendChild(value);
+  value.classList.add("progress-value");
+
+  fill.style.width = value.textContent = `${percent}%`;
+
+  if (percent > 43) {
+    var centerWidth = Math.min(percent - 43, 13.34);
+    centerFill.style.width = `${centerWidth}%`;
   }
 }
 

@@ -6,6 +6,11 @@ ul {
   margin-bottom: 1em;
 }
 
+/*
+ * Progress bar adapted from http://codepen.io/needim/pen/tmhre
+ * Original author: Nedim Arabacı
+ */
+
 .progress {
   display: inline-block;
   font-weight: bold;

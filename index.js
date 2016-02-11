@@ -6,6 +6,7 @@ function* load() {
 
   let root = document.createElement("ul");
   document.body.appendChild(root);
+  root.id = "root";
   for (let groupName in json) {
     let groupValue = json[groupName];
     let li = document.createElement("li");
@@ -25,9 +26,28 @@ function* load() {
     }
   }
 
+  summarize(document.querySelectorAll(".progress"));
+
   for (let progress of document.querySelectorAll(".progress")) {
     addProgressBar(progress);
   }
+}
+
+function summarize(items) {
+  let itemCount = items.length;
+  let progressSum = [...items].reduce((sum, progress) => {
+    return sum + Number(progress.textContent);
+  }, 0);
+
+  let root = document.getElementById("root");
+  let summary = document.createElement("li");
+  root.appendChild(summary);
+  summary.id = "summary";
+  summary.textContent = "Total";
+  let progress = document.createElement("div");
+  summary.appendChild(progress);
+  progress.classList.add("progress");
+  progress.textContent = progressSum / itemCount;
 }
 
 function addProgressBar(progress) {

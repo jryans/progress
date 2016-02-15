@@ -10,7 +10,12 @@ function* load() {
     let groupValue = json[groupName];
     let group = document.createElement("h3");
     root.appendChild(group);
-    group.textContent = groupName;
+    let groupLabel = document.createElement("span");
+    group.appendChild(groupLabel);
+    groupLabel.classList.add("label");
+    groupLabel.textContent = groupName;
+
+    let progressList = [];
     for (let taskName in groupValue) {
       let taskValue = groupValue[taskName];
       let task = document.createElement("div")
@@ -22,33 +27,33 @@ function* load() {
       taskLabel.textContent = taskName;
       let progress = document.createElement("div");
       task.appendChild(progress);
+      progressList.push(progress);
       progress.classList.add("progress");
       progress.textContent = taskValue;
     }
+
+    let summary = summarize(progressList);
+    group.appendChild(summary);
   }
 
-  summarize(document.querySelectorAll(".progress"));
+  let summary = summarize(document.querySelectorAll(".task .progress"));
+  document.querySelector("h2").appendChild(summary);
 
   for (let progress of document.querySelectorAll(".progress")) {
     addProgressBar(progress);
   }
 }
 
-function summarize(tasks) {
-  let taskCount = tasks.length;
-  let progressSum = [...tasks].reduce((sum, progress) => {
+function summarize(progressList) {
+  let taskCount = progressList.length;
+  let progressSum = [...progressList].reduce((sum, progress) => {
     return sum + Number(progress.textContent);
   }, 0);
 
-  let root = document.getElementById("root");
-  let summary = document.createElement("li");
-  root.appendChild(summary);
-  summary.id = "summary";
-  summary.textContent = "Total";
   let progress = document.createElement("div");
-  summary.appendChild(progress);
   progress.classList.add("progress");
   progress.textContent = progressSum / taskCount;
+  return progress;
 }
 
 function addProgressBar(progress) {

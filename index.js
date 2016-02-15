@@ -4,25 +4,26 @@ function* load() {
   let response = yield fetch("data.json");
   let json = yield response.json();
 
-  let root = document.createElement("ul");
-  document.body.appendChild(root);
+  let root = document.body;
   root.id = "root";
   for (let groupName in json) {
     let groupValue = json[groupName];
-    let li = document.createElement("li");
-    root.appendChild(li);
-    li.textContent = groupName;
-    let group = document.createElement("ul");
-    li.appendChild(group);
-    for (let itemName in groupValue) {
-      let itemValue = groupValue[itemName];
-      let li = document.createElement("li")
-      group.appendChild(li);
-      li.textContent = itemName;
+    let group = document.createElement("h3");
+    root.appendChild(group);
+    group.textContent = groupName;
+    for (let taskName in groupValue) {
+      let taskValue = groupValue[taskName];
+      let task = document.createElement("div")
+      root.appendChild(task);
+      task.classList.add("task");
+      let taskLabel = document.createElement("span");
+      task.appendChild(taskLabel);
+      taskLabel.classList.add("label");
+      taskLabel.textContent = taskName;
       let progress = document.createElement("div");
-      li.appendChild(progress);
+      task.appendChild(progress);
       progress.classList.add("progress");
-      progress.textContent = itemValue;
+      progress.textContent = taskValue;
     }
   }
 
@@ -33,9 +34,9 @@ function* load() {
   }
 }
 
-function summarize(items) {
-  let itemCount = items.length;
-  let progressSum = [...items].reduce((sum, progress) => {
+function summarize(tasks) {
+  let taskCount = tasks.length;
+  let progressSum = [...tasks].reduce((sum, progress) => {
     return sum + Number(progress.textContent);
   }, 0);
 
@@ -47,7 +48,7 @@ function summarize(items) {
   let progress = document.createElement("div");
   summary.appendChild(progress);
   progress.classList.add("progress");
-  progress.textContent = progressSum / itemCount;
+  progress.textContent = progressSum / taskCount;
 }
 
 function addProgressBar(progress) {

@@ -1,12 +1,23 @@
 {
   "name": "progress",
   "version": "0.0.0",
-  "description": "",
+  "description": "Track progress on random projects",
   "main": "index.js",
-  "dependencies": {
-    "co": "^4.6.0"
+  "dependencies": {},
+  "devDependencies": {
+    "jspm": "^0.17.0-beta.6"
   },
-  "devDependencies": {},
+  "jspm": {
+    "dependencies": {
+      "co": "npm:co@^4.6.0"
+    },
+    "devDependencies": {
+      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.2"
+    },
+    "peerDependencies": {
+      "process": "github:jspm/nodelibs-process@^0.2.0-alpha"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jryans/progress.git"

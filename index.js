@@ -1,4 +1,4 @@
-"use strict";
+import co from "co";
 
 function* load() {
   let response = yield fetch("data.json");

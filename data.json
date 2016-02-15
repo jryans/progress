@@ -1,10 +1,27 @@
 {
-  "Group 1": {
-    "Task 1a": 20,
-    "Task 1b": 30
+  "Mixed Language Parsing": {
+    "Visual Parser Creation": 0,
+    "Visual Parser Debugging": 0,
+    "Parsing Engine": 0,
+    "Error Recovery": 0,
+    "Language Attachment Points": 0,
+    "Alter Attached Languages": 0,
+    "Streaming": 0,
+    "Incremental": 0,
+    "Reusable": 0,
+    "Fast": 0,
+    "Host Language Agnostic": 0,
+    "Results: AST": 0,
+    "Results: Streaming Events": 0,
+    "Results: Whitespace": 0,
+    "Results: Grammar Data for Syntax Highlighting": 0,
+    "Results: Source Maps": 0,
+    "Compiler Ready": 0
   },
-  "Group 2": {
-    "Task 2a": 0,
-    "Task 2b": 100
+  "Mixed Language Programming": {
+  },
+  "P2P App Platform": {
+  },
+  "DXR / VCS / Bug": {
   }
 }

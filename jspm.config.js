@@ -5,18 +5,21 @@ SystemJS.config({
     "github:*/*.json"
   ],
   globalEvaluationScope: false,
-  transpiler: "plugin-babel",
+  /* transpiler: "plugin-babel",
+  babelOptions: {
+    "es2015": false,
+    "stage3": false
+  }, */
 
   map: {
     "co": "npm:co@4.6.0",
-    "plugin-babel": "npm:systemjs-plugin-babel@0.0.2",
     "process": "github:jspm/nodelibs-process@0.2.0-alpha"
   },
 
   packages: {
     "progress": {
-      "format": "esm",
-      "main": "index.js",
+      "format": "cjs",
+      "main": "index.js"
     }
   }
 });

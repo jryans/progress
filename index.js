@@ -1,4 +1,4 @@
-import co from "co";
+let co = require("co");
 
 function* load() {
   let response = yield fetch("data.json");
